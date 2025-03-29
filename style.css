@@ -2,7 +2,6 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
 }
 
 .page-header h1 {
@@ -14,6 +13,7 @@ body, html {
   display: flex;
   flex-direction: row;
   height: calc(100% - 60px);
+  overflow: hidden;
 }
 
 .image-section {
@@ -51,7 +51,7 @@ body, html {
 .controls-section {
   width: 320px;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
   padding: 20px;
   background-color: #fff;
   box-sizing: border-box;
