@@ -33,24 +33,40 @@ function downloadCompositeImage() {
   const sub = document.getElementById('sub-layer');
   const logo = document.getElementById('logo-layer');
   const text = document.getElementById('selected-color-text').textContent;
+  const title = '컬러 시뮬레이터';
 
   const canvas = document.createElement('canvas');
   const width = main.naturalWidth;
-  const height = main.naturalHeight + 60; // 텍스트 공간 추가
+  const padding = 50;
+  const height = main.naturalHeight + padding * 2; // 위 아래 텍스트 공간
+
   canvas.width = width;
   canvas.height = height;
 
   const ctx = canvas.getContext('2d');
-  ctx.drawImage(main, 0, 0);
-  if (sub.src) ctx.drawImage(sub, 0, 0);
-  if (logo.src) ctx.drawImage(logo, 0, 0);
 
-  // 텍스트 스타일
+  // 배경 (선택사항)
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, width, height);
+
+  // 타이틀 출력 (상단)
+  ctx.fillStyle = '#111';
+  ctx.font = '24px Pretendard, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(title, width / 2, 40);
+
+  // 이미지 출력
+  ctx.drawImage(main, 0, padding);
+  if (sub.src) ctx.drawImage(sub, 0, padding);
+  if (logo.src) ctx.drawImage(logo, 0, padding);
+
+  // 선택 정보 출력 (하단)
   ctx.fillStyle = '#111';
   ctx.font = '20px Pretendard, sans-serif';
   ctx.textAlign = 'center';
   ctx.fillText(text, width / 2, height - 20);
 
+  // 다운로드
   const today = new Date();
   const yyyy = today.getFullYear();
   const mm = String(today.getMonth() + 1).padStart(2, '0');
