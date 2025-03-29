@@ -4,7 +4,7 @@ let selectedSide = '블랙';
 
 function updateSelectedText() {
   const target = document.getElementById('selected-color-text');
-  target.textContent = `메인 색상: ${selectedMain} / 어깨 색상: ${selectedSub} / 사이바 색상: ${selectedSide}`;
+  target.textContent = `메인: ${selectedMain} / 어깨: ${selectedSub} / 사이바: ${selectedSide}`;
 }
 
 function changeMainColor(code) {
@@ -32,15 +32,24 @@ function downloadCompositeImage() {
   const main = document.getElementById('main-layer');
   const sub = document.getElementById('sub-layer');
   const logo = document.getElementById('logo-layer');
+  const text = document.getElementById('selected-color-text').textContent;
 
   const canvas = document.createElement('canvas');
-  canvas.width = main.naturalWidth;
-  canvas.height = main.naturalHeight;
+  const width = main.naturalWidth;
+  const height = main.naturalHeight + 60; // 텍스트 공간 추가
+  canvas.width = width;
+  canvas.height = height;
 
   const ctx = canvas.getContext('2d');
   ctx.drawImage(main, 0, 0);
   if (sub.src) ctx.drawImage(sub, 0, 0);
   if (logo.src) ctx.drawImage(logo, 0, 0);
+
+  // 텍스트 스타일
+  ctx.fillStyle = '#111';
+  ctx.font = '20px Pretendard, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(text, width / 2, height - 20);
 
   const today = new Date();
   const yyyy = today.getFullYear();
