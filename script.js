@@ -33,7 +33,7 @@ function downloadCompositeImage() {
   const sub = document.getElementById('sub-layer');
   const logo = document.getElementById('logo-layer');
   const text = document.getElementById('selected-color-text').textContent;
-  const title = document.title; // ← HTML 문서의 타이틀 자동 사용
+  const title = document.title;
 
   const canvas = document.createElement('canvas');
   const width = main.naturalWidth;
@@ -48,23 +48,19 @@ function downloadCompositeImage() {
   ctx.fillStyle = "#ffffff";
   ctx.fillRect(0, 0, width, height);
 
-  // 상단 타이틀
   ctx.fillStyle = '#111';
   ctx.font = '24px Pretendard, sans-serif';
   ctx.textAlign = 'center';
   ctx.fillText(title, width / 2, 40);
 
-  // 이미지
   ctx.drawImage(main, 0, padding);
   if (sub.src) ctx.drawImage(sub, 0, padding);
   if (logo.src) ctx.drawImage(logo, 0, padding);
 
-  // 하단 선택된 정보
   ctx.fillStyle = '#111';
   ctx.font = '20px Pretendard, sans-serif';
   ctx.fillText(text, width / 2, height - 20);
 
-  // 저장
   const today = new Date();
   const yyyy = today.getFullYear();
   const mm = String(today.getMonth() + 1).padStart(2, '0');
