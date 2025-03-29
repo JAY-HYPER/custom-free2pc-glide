@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[컬러커스텀] 프리투피스 - 글라이드스킨</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-header h1 {
+      text-align: left;
+      margin-left: 32px;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1>[컬러커스텀] 프리투피스 - 글라이드스킨</h1>
+  </header>
+
+  <div class="container">
+    <div class="image-section">
+      <div class="image-wrapper">
+        <div class="image-stack" id="image-stack">
+          <img id="main-layer" src="assets/main-blk.png" alt="메인">
+          <img id="sub-layer" src="assets/arm-blk.png" alt="어깨">
+          <img id="logo-layer" src="assets/side-blk.png" alt="사이바">
+        </div>
+
+        <div id="selected-color-text" class="selected-color">
+          메인: 블랙 / 어깨: 블랙 / 사이바: 블랙
+        </div>
+
+        <button class="download-button" onclick="downloadCompositeImage()">이미지 다운로드</button>
+      </div>
+    </div>
+
+    <div class="controls-section">
+      <h3 class="section-title">메인</h3>
+      <div class="color-row">
+        <button class="color-button color-black" onclick="changeMainColor('blk')">블랙</button>
+        <button class="color-button color-charcoal" onclick="changeMainColor('chr')">차콜</button>
+        <button class="color-button color-silver" onclick="changeMainColor('slv')">실버</button>
+        <button class="color-button color-blue" onclick="changeMainColor('blu')">블루</button>
+        <button class="color-button color-red" onclick="changeMainColor('red')">레드</button>
+        <button class="color-button color-gold" onclick="changeMainColor('gld')">골드</button>
+      </div>
+
+      <h3 class="section-title">어깨</h3>
+      <div class="color-row">
+        <button class="color-button color-black" onclick="changeSubColor('blk')">블랙</button>
+        <button class="color-button color-charcoal" onclick="changeSubColor('chr')">차콜</button>
+        <button class="color-button color-silver" onclick="changeSubColor('slv')">실버</button>
+        <button class="color-button color-blue" onclick="changeSubColor('blu')">블루</button>
+        <button class="color-button color-red" onclick="changeSubColor('red')">레드</button>
+        <button class="color-button color-gold" onclick="changeSubColor('gld')">골드</button>
+      </div>
+
+      <h3 class="section-title">사이바</h3>
+      <div class="color-row">
+        <button class="color-button color-black" onclick="changeSideColor('blk')">블랙</button>
+        <button class="color-button color-charcoal" onclick="changeSideColor('chr')">차콜</button>
+        <button class="color-button color-silver" onclick="changeSideColor('slv')">실버</button>
+        <button class="color-button color-blue" onclick="changeSideColor('blu')">블루</button>
+        <button class="color-button color-red" onclick="changeSideColor('red')">레드</button>
+        <button class="color-button color-gold" onclick="changeSideColor('gld')">골드</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
